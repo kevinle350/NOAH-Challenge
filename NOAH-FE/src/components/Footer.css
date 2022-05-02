@@ -1,0 +1,60 @@
+.center-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-bg {
+    background-color: #FCFCFC;
+    position: relative;
+    height: 8.75rem;
+    margin-top: -12rem;
+    clear: both;
+    width: 30rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block;
+}
+
+.personal {
+    background-color: #ff8c00;
+}
+
+.personal-data-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1.5625rem;
+    margin-right: 1.5625rem;
+    color: white;
+}
+
+.personal-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.user-img-footer {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.footer-wrapper {
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.5625rem;
+}
+
+.footer-btn {
+    color: grey;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none
+}
+
+.footer-btn.clicked {
+    color: black;
+}
+
