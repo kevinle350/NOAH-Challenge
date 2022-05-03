@@ -7,9 +7,11 @@ import user from './images/User.png';
 import {useQuery} from '@apollo/client';
 import {USER_QUERY} from "../GraphQL/Queries" ;
 
+
 function Rewards() {
     const [offset, setOffset] = useState(0)
     const [users, setUsers] = useState([])
+    const [sorted, setSorted] = useState([])
     const [leaderboard, setLeaderboard] = useState(true)
     const [earn, setEarn] = useState(false)
 
@@ -22,21 +24,24 @@ function Rewards() {
 
     const {error, loading, data} = useQuery(USER_QUERY)
 
-    // const arrSort = data?.users
-    // console.log(arrSort)
-    // const testArr = JSON.parse(JSON.stringify(data?.users))
-    // console.log(JSON.parse(JSON.stringify(data?.users)))
-    // testArr?.sort((a, b) => {return b.points - a.points})
-    // console.log(testArr)
-
     const loadMoreUsers = () => {
+        sortUsers()
         if (offset <= data?.users.length) {
             var newUsers = [];
-            var slicedArr = data?.users?.slice(offset, offset + 10)
+            var slicedArr = sorted.slice(offset, offset + 10)
             slicedArr?.forEach((u) => newUsers.push(u));
             setUsers((oldUsers) => [...oldUsers, ...newUsers]);
             setOffset(offset+10)
         } 
+    }
+
+    //sort users
+    //@TODO Optimize: esp with a large number of users
+    const sortUsers = () => {
+        if (sorted.length < data?.users.length)
+        data?.users.forEach((u) => sorted.push(u));
+        sorted.sort((a, b) => {return b.points - a.points})
+        setSorted(sorted)
     }
 
     useEffect(() => {

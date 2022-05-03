@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import './Footer.css'
 import { Button, Card } from 'react-bootstrap';
 import user from './images/User.png';
+import { FaWallet } from 'react-icons/fa';
+import { AiFillDollarCircle } from 'react-icons/ai';
+import { HiGift } from 'react-icons/hi';
+import { GiSprout } from 'react-icons/gi';
 
 
 function Footer() {
@@ -33,28 +37,32 @@ function Footer() {
                             className={!wallet ? 'footer-btn' : 'footer-btn clicked'}
                             onClick={() => { setWallet(true); setEarn(false); setBorrow(false); setRewards(false) }}
                         >
-                                Wallet
+                            <div className='icon-style'><FaWallet /></div>
+                            Wallet
                         </Button>
                         <Button
                             href="/earn"
                             className={!earn ? 'footer-btn' : 'footer-btn clicked'}
                             onClick={() => { setWallet(false); setEarn(true); setBorrow(false); setRewards(false) }}
                         >
-                                Earn
+                            <div className='icon-style'><GiSprout /></div>
+                            Earn
                         </Button>
                         <Button
                             href="/borrow"
                             className={!borrow ? 'footer-btn' : 'footer-btn clicked'}
                             onClick={() => { setWallet(false); setEarn(false); setBorrow(true); setRewards(false) }}
                         >
-                                Borrow
+                            <div className='icon-style'><AiFillDollarCircle /></div>
+                            Borrow
                         </Button>
                         <Button
                             href="/rewards"
                             className={!rewards ? 'footer-btn' : 'footer-btn clicked'}
                             onClick={() => { setWallet(false); setEarn(false); setBorrow(false); setRewards(true) }}
-                        >
-                                Rewards             
+                        >   
+                            <div className='icon-style'><HiGift /></div>
+                            Rewards                        
                         </Button>
                     </div>
                 </div>
